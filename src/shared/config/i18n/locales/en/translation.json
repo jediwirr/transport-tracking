@@ -11,5 +11,9 @@
 	"Passenger": "Passenger",
 	"Special": "Special",
 	"All": "All",
-	"Loading": "Loading..."
+	"Loading": "Loading...",
+	"Select type": "Select type: ",
+	"View as list": "View as list",
+	"View on map": "View on map",
+	"Accept": "Accept"
 }

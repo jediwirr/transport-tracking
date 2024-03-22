@@ -1,5 +1,6 @@
-import { TransportType } from "@/entities/transport/model/types.d";
 import axios from "axios";
+
+import { TransportType } from "@/entities/transport";
 
 const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 

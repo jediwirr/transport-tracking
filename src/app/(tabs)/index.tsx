@@ -5,12 +5,14 @@ import { useTranslation } from "react-i18next";
 import { Text } from "@/shared/ui/Themed";
 import { fetchTransport } from "@/shared/api";
 import { TransportList } from "@/widgets/transport-list";
-import { TransportFilter } from "@/widgets/transport-filter";
-import { TransportType } from "@/entities/transport";
+import { Map } from "@/widgets/map";
+import { ViewPicker } from "@/widgets/view-picker";
+import { useTransportStore } from "@/widgets/transport-filter/store";
 
 export default function () {
   const { t } = useTranslation();
-  const [transportType, setTransportType] = useState<TransportType>();
+  const [isMapViewOn, setIsMapViewOn] = useState(false);
+  const { transportType } = useTransportStore();
 
   const { data: transport, isLoading } = useQuery({
     queryKey: ["transport", transportType],
@@ -27,8 +29,15 @@ export default function () {
 
   return (
     <>
-      <TransportFilter onChangeTransportType={setTransportType} />
-      <TransportList transport={transport} />
+      <ViewPicker
+        selectedViewIndex={+isMapViewOn}
+        onViewChange={(isMapView) => setIsMapViewOn(!!isMapView)}
+      />
+      {isMapViewOn ? (
+        <Map transport={transport} />
+      ) : (
+        <TransportList transport={transport} />
+      )}
     </>
   );
 }

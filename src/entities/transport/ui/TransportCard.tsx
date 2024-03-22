@@ -23,7 +23,7 @@ export const TransportCard: FC<TransportCardProps> = (props) => {
 
       <View style={styles.infoPanel}>
         <Text style={styles.infoTitle}>{t("Category")}</Text>
-        <Text style={styles.info}>{transportTypes[item.type]}</Text>
+        <Text style={styles.info}>{transportTypes[item.type].name}</Text>
       </View>
 
       <View style={styles.infoPanel}>

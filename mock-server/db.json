@@ -3,62 +3,110 @@
 		{
 			"id": "621370d5-d66f-459d-9f61-219bf793ab37",
 			"driver": "Костомаров И. В.",
-			"type": 1
+			"type": 1,
+			"coordinates": {
+				"latitude": 60.031636,
+				"longitude": 30.351761
+			}
 		},
 		{
 			"id": "772150fb-c0a9-403e-8df9-6bab698a50e6",
 			"driver": "Резцова Т. В.",
-			"type": 2
+			"type": 2,
+			"coordinates": {
+				"latitude": 60.030692,
+				"longitude": 30.431956
+			}
 		},
 		{
 			"id": "e4fa16c2-102f-41c1-9227-7b88ab7dae50",
 			"driver": "Троегубов В. П.",
-			"type": 2
+			"type": 2,
+			"coordinates": {
+				"latitude": 59.970716,
+				"longitude": 30.314325
+			}
 		},
 		{
 			"id": "4bf43025-677b-4af7-9594-6a025812570e",
 			"driver": "Нечаев И. И.",
-			"type": 3
+			"type": 3,
+			"coordinates": {
+				"latitude": 59.960052,
+				"longitude": 30.302892
+			}
 		},
 		{
 			"id": "99de6243-7cf7-45d3-9ef5-36bbeff6c50d",
 			"driver": "Голубев Ю. А.",
-			"type": 1
+			"type": 1,
+			"coordinates": {
+				"latitude": 59.955504,
+				"longitude": 30.209025
+			}
 		},
 		{
 			"id": "ba173a4e-43f6-41f6-b5f0-b3afbb28d510",
 			"driver": "Афанасьева И. А.",
-			"type": 1
+			"type": 1,
+			"coordinates": {
+				"latitude": 59.995607,
+				"longitude": 30.437226
+			}
 		},
 		{
 			"id": "75deae9b-d160-449b-8f5f-9fd5e444b29c",
 			"driver": "Курёхина Е. Н.",
-			"type": 1
+			"type": 1,
+			"coordinates": {
+				"latitude": 60.000263,
+				"longitude": 30.364081
+			}
 		},
 		{
 			"id": "6a7b3a30-bd1c-4b7f-b583-d760c2b56dfe",
 			"driver": "Петров В. Г.",
-			"type": 2
+			"type": 2,
+			"coordinates": {
+				"latitude": 60.007180,
+				"longitude": 30.391820
+			}
 		},
 		{
 			"id": "f2efbbed-05d9-4c85-9f8b-169a56a8f4c5",
 			"driver": "Разумелов С. И.",
-			"type": 2
+			"type": 2,
+			"coordinates": {
+				"latitude": 59.995607,
+				"longitude": 30.437226
+			}
 		},
 		{
 			"id": "cccd52c4-6211-4c7d-8873-de394f5f77a7",
 			"driver": "Степанова Л. А.",
-			"type": 2
+			"type": 2,
+			"coordinates": {
+				"latitude": 60.000401,
+				"longitude": 30.348486
+			}
 		},
 		{
 			"id": "d5c051a0-4d87-47c3-8fea-62401437a935",
 			"driver": "Поспелов А. Г.",
-			"type": 1
+			"type": 1,
+			"coordinates": {
+				"latitude": 60.001684,
+				"longitude": 30.339210
+			}
 		},
 		{
 			"id": "e11ab381-609c-4b70-a8b1-f7f0286dc874",
 			"driver": "Круглов А. А.",
-			"type": 3
+			"type": 3,
+			"coordinates": {
+				"latitude": 60.008669,
+				"longitude": 30.341829
+			}
 		}
 	]
 }
