@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
+import { useTranslation } from "react-i18next";
 
 import { Text, View } from "@/shared/ui/Themed";
-import { Transport, TransportType } from "../model/types.d";
-import { useTranslation } from "react-i18next";
+import { Transport } from "../model/types.d";
+import { useTransportTypes } from "../hooks/useTransportTypes";
 
 interface TransportCardProps extends Transport {
   itemIndex: number;
@@ -12,12 +13,7 @@ interface TransportCardProps extends Transport {
 export const TransportCard: FC<TransportCardProps> = (props) => {
   const { itemIndex, ...item } = props;
   const { t } = useTranslation();
-
-  const transportTypes = {
-    [TransportType.CARGO]: t("Cargo"),
-    [TransportType.PASSANGER]: t("Passenger"),
-    [TransportType.SPECIAL]: t("Special"),
-  };
+  const transportTypes = useTransportTypes();
 
   return (
     <TouchableOpacity style={styles.container}>

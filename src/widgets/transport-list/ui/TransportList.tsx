@@ -1,24 +1,15 @@
 import { FC } from "react";
 import { FlatList, ListRenderItem, StyleSheet } from "react-native";
-import { useQuery } from "@tanstack/react-query";
 
-import { Text, View } from "@/shared/ui/Themed";
-import { fetchTransport } from "@/shared/api";
-import { TransportCard } from "@/entities/transport";
+import { View } from "@/shared/ui/Themed";
+import { Transport, TransportCard } from "@/entities/transport";
 
-export const TransportList: FC = () => {
-  const { data: transport, isLoading } = useQuery({
-    queryKey: ["transport"],
-    queryFn: fetchTransport,
-  });
+interface TransportListProps {
+  transport: Transport[];
+}
 
-  if (isLoading) {
-    return <Text>Loading...</Text>;
-  }
-
-  if (!transport) {
-    return null;
-  }
+export const TransportList: FC<TransportListProps> = (props) => {
+  const { transport } = props;
 
   const renderItem: ListRenderItem<any> = ({ item, index }) => (
     <TransportCard itemIndex={index} {...item} />

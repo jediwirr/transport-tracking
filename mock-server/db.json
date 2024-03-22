@@ -3,62 +3,62 @@
 		{
 			"id": "621370d5-d66f-459d-9f61-219bf793ab37",
 			"driver": "Костомаров И. В.",
-			"type": 0
+			"type": 1
 		},
 		{
 			"id": "772150fb-c0a9-403e-8df9-6bab698a50e6",
 			"driver": "Резцова Т. В.",
-			"type": 1
+			"type": 2
 		},
 		{
 			"id": "e4fa16c2-102f-41c1-9227-7b88ab7dae50",
 			"driver": "Троегубов В. П.",
-			"type": 1
+			"type": 2
 		},
 		{
 			"id": "4bf43025-677b-4af7-9594-6a025812570e",
 			"driver": "Нечаев И. И.",
-			"type": 2
+			"type": 3
 		},
 		{
 			"id": "99de6243-7cf7-45d3-9ef5-36bbeff6c50d",
 			"driver": "Голубев Ю. А.",
-			"type": 0
+			"type": 1
 		},
 		{
 			"id": "ba173a4e-43f6-41f6-b5f0-b3afbb28d510",
 			"driver": "Афанасьева И. А.",
-			"type": 0
+			"type": 1
 		},
 		{
 			"id": "75deae9b-d160-449b-8f5f-9fd5e444b29c",
 			"driver": "Курёхина Е. Н.",
-			"type": 0
+			"type": 1
 		},
 		{
 			"id": "6a7b3a30-bd1c-4b7f-b583-d760c2b56dfe",
 			"driver": "Петров В. Г.",
-			"type": 1
+			"type": 2
 		},
 		{
 			"id": "f2efbbed-05d9-4c85-9f8b-169a56a8f4c5",
 			"driver": "Разумелов С. И.",
-			"type": 1
+			"type": 2
 		},
 		{
 			"id": "cccd52c4-6211-4c7d-8873-de394f5f77a7",
 			"driver": "Степанова Л. А.",
-			"type": 1
+			"type": 2
 		},
 		{
 			"id": "d5c051a0-4d87-47c3-8fea-62401437a935",
 			"driver": "Поспелов А. Г.",
-			"type": 0
+			"type": 1
 		},
 		{
 			"id": "e11ab381-609c-4b70-a8b1-f7f0286dc874",
 			"driver": "Круглов А. А.",
-			"type": 2
+			"type": 3
 		}
 	]
 }
