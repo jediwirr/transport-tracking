@@ -3,7 +3,11 @@
  * https://docs.expo.io/guides/color-schemes/
  */
 
-import { Text as DefaultText, View as DefaultView } from "react-native";
+import {
+  Text as DefaultText,
+  View as DefaultView,
+  Button as DefaultButton,
+} from "react-native";
 
 import Colors from "@/shared/constants/Colors";
 import { useColorScheme } from "../hooks/useColorScheme";
@@ -14,6 +18,7 @@ type ThemeProps = {
 };
 
 export type TextProps = ThemeProps & DefaultText["props"];
+export type ButtonProps = ThemeProps & DefaultButton["props"];
 export type ViewProps = ThemeProps & DefaultView["props"];
 
 export function useThemeColor(
@@ -35,6 +40,13 @@ export function Text(props: TextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
 
   return <DefaultText style={[{ color }, style]} {...otherProps} />;
+}
+
+export function Button(props: ButtonProps) {
+  const { title, lightColor, darkColor, ...otherProps } = props;
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
+
+  return <DefaultButton color={color} title={title} {...otherProps} />;
 }
 
 export function View(props: ViewProps) {
