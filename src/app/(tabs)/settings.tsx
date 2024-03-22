@@ -1,21 +1,16 @@
 import { StyleSheet } from "react-native";
+import { useTranslation } from "react-i18next";
 
-import EditScreenInfo from "@/shared/ui/EditScreenInfo";
 import { Text, View } from "@/shared/ui/Themed";
-import I18n from "@/shared/constants/I18n";
+import { LangPicker } from "@/widgets/lang-picker";
 
 export default function SettingsScreen() {
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{I18n.t("currentLang")}</Text>
-      <Text style={styles.title}>{I18n.t("lang")}</Text>
-
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="app/(tabs)/settings.tsx" />
+      <Text style={styles.title}>{t("Select language")}</Text>
+      <LangPicker />
     </View>
   );
 }
@@ -29,10 +24,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
   },
 });

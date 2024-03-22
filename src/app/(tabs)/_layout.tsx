@@ -2,6 +2,7 @@ import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 import { Pressable } from "react-native";
+import { useTranslation } from "react-i18next";
 
 import Colors from "@/shared/constants/Colors";
 import { useColorScheme } from "@/shared/hooks/useColorScheme";
@@ -17,6 +18,7 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { t } = useTranslation();
 
   return (
     <Tabs
@@ -30,7 +32,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Транспорт",
+          title: t("Transport"),
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="automobile" color={color} />
           ),
@@ -53,7 +55,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          title: "Настройки",
+          title: t("Settings"),
           tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
         }}
       />
