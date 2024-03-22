@@ -1,23 +1,34 @@
-import { StyleSheet } from "react-native";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 
-import { View } from "@/shared/ui/Themed";
+import { Text } from "@/shared/ui/Themed";
+import { fetchTransport } from "@/shared/api";
 import { TransportList } from "@/widgets/transport-list";
+import { TransportFilter } from "@/widgets/transport-filter";
+import { TransportType } from "@/entities/transport";
 
 export default function () {
+  const { t } = useTranslation();
+  const [transportType, setTransportType] = useState<TransportType>();
+
+  const { data: transport, isLoading } = useQuery({
+    queryKey: ["transport", transportType],
+    queryFn: () => fetchTransport(transportType),
+  });
+
+  if (isLoading) {
+    return <Text>{t("Loading")}</Text>;
+  }
+
+  if (!transport) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <TransportList />
-    </View>
+    <>
+      <TransportFilter onChangeTransportType={setTransportType} />
+      <TransportList transport={transport} />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});

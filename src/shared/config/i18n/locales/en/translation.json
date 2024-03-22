@@ -9,5 +9,7 @@
 	"Driver": "Driver: ",
 	"Cargo": "Cargo",
 	"Passenger": "Passenger",
-	"Special": "Special"
+	"Special": "Special",
+	"All": "All",
+	"Loading": "Loading..."
 }
