@@ -3,5 +3,11 @@
 	"RU": "Русский",
 	"Select language": "Выберите язык: ",
 	"Transport": "Транспорт",
-	"Settings": "Настройки"
+	"Settings": "Настройки",
+	"Vehicle": "ТС",
+	"Category": "Категория: ",
+	"Driver": "Водитель: ",
+	"Cargo": "Грузовой",
+	"Passenger": "Пассажирский",
+	"Special": "Спецтранспорт"
 }

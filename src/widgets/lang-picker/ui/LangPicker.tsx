@@ -1,10 +1,11 @@
+import { FC } from "react";
 import { StyleSheet } from "react-native";
 import { useTranslation } from "react-i18next";
 import { Picker } from "@react-native-picker/picker";
 
 import { Locales } from "@/shared/config/i18n";
 
-export const LangPicker = () => {
+export const LangPicker: FC = () => {
   const { t, i18n } = useTranslation();
 
   const switchLocale = (locale: Locales) => {
