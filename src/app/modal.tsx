@@ -1,13 +1,23 @@
 import { StatusBar } from "expo-status-bar";
 import { Platform, StyleSheet } from "react-native";
 
-import { Text, View } from "@/shared/ui/Themed";
+import { Button, View } from "@/shared/ui/Themed";
+import { TransportFilter } from "@/widgets/transport-filter";
+import { useTranslation } from "react-i18next";
+import { useNavigation } from "expo-router";
 
 export default function ModalScreen() {
+  const { t } = useTranslation();
+  const navigation = useNavigation();
+
+  const closeModal = () => {
+    navigation.goBack();
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-
+      <TransportFilter />
+      <Button title={t("Accept")} onPress={closeModal} />
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
     </View>
@@ -17,12 +27,8 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
+    alignItems: "center",
   },
   separator: {
     marginVertical: 30,

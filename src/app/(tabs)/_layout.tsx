@@ -1,5 +1,5 @@
 import React from "react";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Link, Tabs } from "expo-router";
 import { Pressable } from "react-native";
 import { useTranslation } from "react-i18next";
@@ -40,9 +40,9 @@ export default function TabLayout() {
             <Link href="/modal" asChild>
               <Pressable>
                 {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
+                  <Ionicons
+                    name="options-outline"
+                    size={24}
                     color={Colors[colorScheme ?? "light"].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                   />
