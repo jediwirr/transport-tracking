@@ -1,14 +1,12 @@
 import { StyleSheet } from "react-native";
-import { useTranslation } from "react-i18next";
 
-import { Text, View } from "@/shared/ui/Themed";
+import { View } from "@/shared/ui/Themed";
+import { TransportList } from "@/widgets/transport-list";
 
 export default function () {
-  const { t } = useTranslation();
-
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{t("Welcome")}</Text>
+      <TransportList />
     </View>
   );
 }
