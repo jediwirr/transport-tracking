@@ -1,0 +1,22 @@
+{
+	"transport": {
+		"cargo": [
+			{
+				"id": "1",
+				"name": "cargo one"
+			}
+		],
+		"passenger": [
+			{
+				"id": "1",
+				"name": "passenger one"
+			}
+		],
+		"special": [
+			{
+				"id": "1",
+				"name": "special one"
+			}
+		]
+	}
+}
