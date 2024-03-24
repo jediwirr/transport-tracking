@@ -3,12 +3,13 @@ import { StyleSheet } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { openURL } from "expo-linking";
 
 import { Button, Text, View } from "@/shared/ui/Themed";
 import { useTransportStore } from "@/widgets/transport-filter/store";
 import { Transport, useTransportTypes } from "@/entities/transport";
 import { Map } from "@/widgets/map";
-import { openURL } from "expo-linking";
+import { fetchTransport } from "@/shared/api";
 
 export default function TransportScreen() {
   const { t } = useTranslation();
@@ -20,15 +21,18 @@ export default function TransportScreen() {
   const transportTypes = useTransportTypes();
 
   const [currentTransport, setCurrentTransport] = useState<Transport>();
-
   useEffect(() => {
-    // Достаём данные из кэша
-    const data: Transport[] =
-      queryClient.getQueryData(["transport", transportType]) ?? [];
+    (async () => {
+      // Достаём данные из кэша или делаем новый запрос
+      const data: Transport[] = await queryClient.ensureQueryData({
+        queryKey: ["transport", transportType],
+        queryFn: () => fetchTransport(transportType),
+      });
 
-    // Находим транспорт с нужным id
-    setCurrentTransport(data.find((item) => item.id === transportId));
-  }, [queryClient]);
+      // Находим транспорт с нужным id
+      setCurrentTransport(data.find((item) => item.id === transportId));
+    })();
+  }, [queryClient, transportType, transportId]);
 
   if (!currentTransport) {
     return <Text>{t("No such transport")}</Text>;
