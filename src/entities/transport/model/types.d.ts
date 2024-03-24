@@ -1,5 +1,5 @@
 export enum TransportType {
-  ALL,
+  ALL, // Добавлен для удобства сортировки
   CARGO,
   PASSENGER,
   SPECIAL,

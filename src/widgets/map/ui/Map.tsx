@@ -32,7 +32,7 @@ export const Map: FC<MapProps> = (props) => {
       <MapView style={styles.map} initialRegion={initialRegion}>
         {transport.map((item) => (
           <Marker key={item.id} coordinate={item.coordinates}>
-            {/*По маркеру можно перейти на экран выбранного транспорта*/}
+            {/* По маркеру можно перейти на экран выбранного транспорта */}
             <Link href={`/transport/${item.id}`} asChild>
               <Pressable>
                 <CustomMarker iconName={transportTypes[item.type].image} />
