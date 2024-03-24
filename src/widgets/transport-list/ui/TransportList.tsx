@@ -11,7 +11,7 @@ interface TransportListProps {
 export const TransportList: FC<TransportListProps> = (props) => {
   const { transport } = props;
 
-  const renderItem: ListRenderItem<any> = ({ item, index }) => (
+  const renderItem: ListRenderItem<Transport> = ({ item, index }) => (
     <TransportCard itemIndex={index} {...item} />
   );
 

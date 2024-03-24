@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { StyleSheet } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
+import { Link } from "expo-router";
 
 import { View } from "@/shared/ui/Themed";
 import { Transport, useTransportTypes } from "@/entities/transport";
@@ -9,18 +10,32 @@ import { CustomMarker } from "./CustomMarker";
 
 interface MapProps {
   transport: Transport[];
+  initialCoordinates?: Pick<Transport["coordinates"], "latitude" | "longitude">;
 }
 
 export const Map: FC<MapProps> = (props) => {
-  const { transport } = props;
+  const { transport, initialCoordinates } = props;
   const transportTypes = useTransportTypes();
+
+  const initialLatitude = initialCoordinates?.latitude;
+  const initialLongitude = initialCoordinates?.longitude;
+
+  const initialRegion = {
+    ...InitialRegion,
+    latitude: initialLatitude ?? InitialRegion.latitude,
+    longitude: initialLongitude ?? InitialRegion.longitude,
+  };
 
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} initialRegion={InitialRegion}>
+      <MapView style={styles.map} initialRegion={initialRegion}>
         {transport.map((item) => (
           <Marker key={item.id} coordinate={item.coordinates}>
-            <CustomMarker iconName={transportTypes[item.type].image} />
+            <Link href={`/transport/${item.id}`} asChild>
+              <Pressable>
+                <CustomMarker iconName={transportTypes[item.type].image} />
+              </Pressable>
+            </Link>
           </Marker>
         ))}
       </MapView>
