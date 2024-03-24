@@ -1,10 +1,11 @@
 import { FC } from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { Pressable, StyleSheet, TouchableOpacity } from "react-native";
 import { useTranslation } from "react-i18next";
 
 import { Text, View } from "@/shared/ui/Themed";
 import { Transport } from "../model/types.d";
 import { useTransportTypes } from "../hooks/useTransportTypes";
+import { Link } from "expo-router";
 
 interface TransportCardProps extends Transport {
   itemIndex: number;
@@ -16,21 +17,23 @@ export const TransportCard: FC<TransportCardProps> = (props) => {
   const transportTypes = useTransportTypes();
 
   return (
-    <TouchableOpacity style={styles.container}>
-      <Text style={styles.title}>
-        {t("Vehicle")} #{itemIndex + 1}
-      </Text>
+    <Link href={`/transport/${item.id}`} asChild>
+      <TouchableOpacity style={styles.container}>
+        <Text style={styles.title}>
+          {t("Vehicle")} #{itemIndex + 1}
+        </Text>
 
-      <View style={styles.infoPanel}>
-        <Text style={styles.infoTitle}>{t("Category")}</Text>
-        <Text style={styles.info}>{transportTypes[item.type].name}</Text>
-      </View>
+        <View style={styles.infoPanel}>
+          <Text style={styles.infoTitle}>{t("Category")}</Text>
+          <Text style={styles.info}>{transportTypes[item.type].name}</Text>
+        </View>
 
-      <View style={styles.infoPanel}>
-        <Text style={styles.infoTitle}>{t("Driver")}</Text>
-        <Text style={styles.info}>{item.driver}</Text>
-      </View>
-    </TouchableOpacity>
+        <View style={styles.infoPanel}>
+          <Text style={styles.infoTitle}>{t("Driver")}</Text>
+          <Text style={styles.info}>{item.driver}</Text>
+        </View>
+      </TouchableOpacity>
+    </Link>
   );
 };
 

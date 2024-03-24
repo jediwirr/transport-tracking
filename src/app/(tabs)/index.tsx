@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { useNavigation } from "expo-router";
 
 import { Text } from "@/shared/ui/Themed";
 import { fetchTransport } from "@/shared/api";
@@ -10,6 +11,7 @@ import { ViewPicker } from "@/widgets/view-picker";
 import { useTransportStore } from "@/widgets/transport-filter/store";
 
 export default function () {
+  const navigation = useNavigation();
   const { t } = useTranslation();
   const [isMapViewOn, setIsMapViewOn] = useState(false);
   const { transportType } = useTransportStore();
