@@ -7,6 +7,7 @@
 	"Vehicle": "Vehicle",
 	"Category": "Category: ",
 	"Driver": "Driver: ",
+	"Contact number": "Contact number: ",
 	"Cargo": "Cargo",
 	"Passenger": "Passenger",
 	"Special": "Special",
@@ -16,5 +17,8 @@
 	"View as list": "View as list",
 	"View on map": "View on map",
 	"Accept": "Accept",
-	"No such transport": "No such transport!"
+	"No such transport": "No such transport!",
+	"Call": "Call",
+	"Write message": "Write message",
+	"Whatsapp message": "Good afternoon, please, name your current order number"
 }
