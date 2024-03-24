@@ -6,6 +6,7 @@ import { Picker } from "@react-native-picker/picker";
 import { Text } from "@/shared/ui/Themed";
 import { TransportType } from "@/entities/transport";
 import { useTransportStore } from "../store";
+import { usePickerStyle } from "@/shared/hooks/usePickerStyle";
 
 export const TransportFilter: FC = () => {
   const { t } = useTranslation();
@@ -15,13 +16,15 @@ export const TransportFilter: FC = () => {
     setTransportType(+value);
   };
 
+  const dynamicPickerItemStyle = usePickerStyle();
+
   return (
     <>
       <Text style={styles.title}>{t("Select type")}</Text>
 
       <Picker
         style={styles.picker}
-        itemStyle={styles.pickerItem}
+        itemStyle={dynamicPickerItemStyle}
         selectedValue={transportType}
         onValueChange={onChangeType}
       >
@@ -38,9 +41,6 @@ const styles = StyleSheet.create({
   picker: {
     width: 250,
     height: 250,
-  },
-  pickerItem: {
-    color: "white",
   },
   title: {
     fontSize: 20,

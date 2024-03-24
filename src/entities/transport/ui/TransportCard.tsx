@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, useColorScheme } from "react-native";
 import { useTranslation } from "react-i18next";
 
 import { Text, View } from "@/shared/ui/Themed";
@@ -13,12 +13,19 @@ interface TransportCardProps extends Transport {
 
 export const TransportCard: FC<TransportCardProps> = (props) => {
   const { itemIndex, ...item } = props;
+  const colorScheme = useColorScheme();
   const { t } = useTranslation();
   const transportTypes = useTransportTypes();
 
+  const dynamicContainerStyle = {
+    backgroundColor: colorScheme === "dark" ? "#232323" : "gainsboro",
+  };
+
   return (
     <Link href={`/transport/${item.id}`} asChild>
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        style={{ ...styles.container, ...dynamicContainerStyle }}
+      >
         <Text style={styles.title}>
           {t("Vehicle")} #{itemIndex + 1}
         </Text>
@@ -40,7 +47,6 @@ export const TransportCard: FC<TransportCardProps> = (props) => {
 const styles = StyleSheet.create({
   container: {
     padding: 26,
-    backgroundColor: "gainsboro",
     marginBottom: 8,
     borderRadius: 16,
   },
