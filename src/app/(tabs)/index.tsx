@@ -14,7 +14,11 @@ export default function () {
   const [isMapViewOn, setIsMapViewOn] = useState(false);
   const { transportType } = useTransportStore();
 
-  const { data: transport, isLoading } = useQuery({
+  const {
+    data: transport,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ["transport", transportType],
     queryFn: () => fetchTransport(transportType),
   });
@@ -23,8 +27,8 @@ export default function () {
     return <Text>{t("Loading")}</Text>;
   }
 
-  if (!transport) {
-    return null;
+  if (!transport || isError) {
+    return <Text>{t("Error occurred")}</Text>;
   }
 
   return (
