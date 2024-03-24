@@ -21,6 +21,7 @@ export default function TransportScreen() {
   const transportTypes = useTransportTypes();
 
   const [currentTransport, setCurrentTransport] = useState<Transport>();
+
   useEffect(() => {
     (async () => {
       // Достаём данные из кэша или делаем новый запрос

@@ -20,5 +20,6 @@
 	"No such transport": "No such transport!",
 	"Call": "Call",
 	"Write message": "Write message",
-	"Whatsapp message": "Good afternoon, please, name your current order number"
+	"Whatsapp message": "Good afternoon, please, name your current order number",
+	"Error occurred": "Error occurred"
 }
