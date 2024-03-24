@@ -4,10 +4,11 @@ import { useLocalSearchParams } from "expo-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
-import { Text, View } from "@/shared/ui/Themed";
+import { Button, Text, View } from "@/shared/ui/Themed";
 import { useTransportStore } from "@/widgets/transport-filter/store";
 import { Transport, useTransportTypes } from "@/entities/transport";
 import { Map } from "@/widgets/map";
+import { openURL } from "expo-linking";
 
 export default function TransportScreen() {
   const { t } = useTranslation();
@@ -33,6 +34,16 @@ export default function TransportScreen() {
     return <Text>{t("No such transport")}</Text>;
   }
 
+  const onCallPressed = () => {
+    openURL(`tel:${currentTransport.driver.contactNumber}`);
+  };
+
+  const onWriteMessagePressed = () => {
+    const waURL = process.env.EXPO_PUBLIC_WA_URL;
+    const text = t("Whatsapp message");
+    openURL(`${waURL}${currentTransport.driver.contactNumber}?text=${text}`);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.infoPanel}>
@@ -44,8 +55,18 @@ export default function TransportScreen() {
 
       <View style={styles.infoPanel}>
         <Text style={styles.title}>{t("Driver")}</Text>
-        <Text style={styles.info}>{currentTransport?.driver}</Text>
+        <Text style={styles.info}>{currentTransport?.driver?.name}</Text>
       </View>
+
+      <View style={styles.infoPanel}>
+        <Text style={styles.title}>{t("Contact number")}</Text>
+        <Text style={styles.info}>
+          {currentTransport?.driver?.contactNumber}
+        </Text>
+      </View>
+
+      <Button title={t("Call")} onPress={onCallPressed} />
+      <Button title={t("Write message")} onPress={onWriteMessagePressed} />
 
       <Map
         initialCoordinates={currentTransport?.coordinates} //Передаём координаты выбранного транспорта

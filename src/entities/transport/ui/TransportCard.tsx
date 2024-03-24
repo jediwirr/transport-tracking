@@ -30,7 +30,7 @@ export const TransportCard: FC<TransportCardProps> = (props) => {
 
         <View style={styles.infoPanel}>
           <Text style={styles.infoTitle}>{t("Driver")}</Text>
-          <Text style={styles.info}>{item.driver}</Text>
+          <Text style={styles.info}>{item.driver.name}</Text>
         </View>
       </TouchableOpacity>
     </Link>

@@ -12,7 +12,10 @@ export interface TypeDescription {
 
 export interface Transport {
   id: string;
-  driver: string;
+  driver: {
+    name: string;
+    contactNumber: string;
+  };
   type: TransportType;
   coordinates: {
     latitude: number;
