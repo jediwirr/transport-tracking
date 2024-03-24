@@ -11,6 +11,7 @@ import { Map } from "@/widgets/map";
 
 export default function TransportScreen() {
   const { t } = useTranslation();
+  // Берём параметры из url
   const params = useLocalSearchParams();
   const transportId = params.id;
   const queryClient = useQueryClient();
@@ -20,9 +21,11 @@ export default function TransportScreen() {
   const [currentTransport, setCurrentTransport] = useState<Transport>();
 
   useEffect(() => {
+    // Достаём данные из кэша
     const data: Transport[] =
       queryClient.getQueryData(["transport", transportType]) ?? [];
 
+    // Находим транспорт с нужным id
     setCurrentTransport(data.find((item) => item.id === transportId));
   }, [queryClient]);
 
@@ -45,7 +48,7 @@ export default function TransportScreen() {
       </View>
 
       <Map
-        initialCoordinates={currentTransport?.coordinates}
+        initialCoordinates={currentTransport?.coordinates} //Передаём координаты выбранного транспорта
         transport={[currentTransport]}
       />
     </View>

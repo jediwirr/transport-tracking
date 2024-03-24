@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Pressable, StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { useTranslation } from "react-i18next";
 
 import { Text, View } from "@/shared/ui/Themed";
