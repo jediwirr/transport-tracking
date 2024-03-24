@@ -20,6 +20,7 @@ export const Map: FC<MapProps> = (props) => {
   const initialLatitude = initialCoordinates?.latitude;
   const initialLongitude = initialCoordinates?.longitude;
 
+  // Если не переданы координаты, используем координаты по умолчанию (zoom всегда по умолчанию)
   const initialRegion = {
     ...InitialRegion,
     latitude: initialLatitude ?? InitialRegion.latitude,
@@ -31,6 +32,7 @@ export const Map: FC<MapProps> = (props) => {
       <MapView style={styles.map} initialRegion={initialRegion}>
         {transport.map((item) => (
           <Marker key={item.id} coordinate={item.coordinates}>
+            {/*По маркеру можно перейти на экран выбранного транспорта*/}
             <Link href={`/transport/${item.id}`} asChild>
               <Pressable>
                 <CustomMarker iconName={transportTypes[item.type].image} />
