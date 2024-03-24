@@ -5,4 +5,4 @@
 - В файле .env поменять localhost в переменной EXPO_PUBLIC_API_URL на свой IP-адрес
 - Запустить mock-сервер командой npm run mock-server
 - Запустить приложение на yстройстве: запустить сервер metro командой npm start и отсканировать QR-код в терминале, где запущен сервер metro
-- Чтобы запустить на эмуляторе/симуляторе: на android - npm run android, на ios - npm run ios
+- Чтобы запустить на эмуляторе/симуляторе: на android - npm run android (эмулятор должен быть предварительно запущен), на ios - npm run ios
